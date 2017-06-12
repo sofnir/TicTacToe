@@ -14,7 +14,7 @@ public:
 	bool isPlayAgainHover(const sf::Vector2f & mousePosition);
 
 private:	
-	TextButton * buttons[2];
+	TextButton buttons[2];
 	sf::RectangleShape background;
 
 	void createButtons();
