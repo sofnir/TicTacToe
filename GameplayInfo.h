@@ -1,13 +1,12 @@
 #pragma once
-#include <SFML\Graphics.hpp>
 #include "Data.h"
 #include "Logic.h"
+#include <SFML\Graphics\Text.hpp>
 
 class GameplayInfo : public sf::Drawable
 {
 public:
 	GameplayInfo();
-	~GameplayInfo();
 
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	void update(const Logic & logic);

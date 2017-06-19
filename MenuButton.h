@@ -1,12 +1,12 @@
 #pragma once
 #include "TextButton.h"
+#include "SFML\Graphics\RectangleShape.hpp"
 
 class MenuButton : public sf::Drawable
 {
 public:
 	MenuButton();
 	MenuButton(const sf::String & string, const sf::Font & font, const sf::Vector2f & position);
-	~MenuButton();
 
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	

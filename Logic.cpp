@@ -5,11 +5,6 @@ Logic::Logic()
 	;
 }
 
-Logic::~Logic()
-{
-	;
-}
-
 void Logic::checkSituation(Board & board)
 {
 	unsigned busy = 0;
@@ -20,7 +15,7 @@ void Logic::checkSituation(Board & board)
 		if (!board.isFieldEmpty(x, 0) && board.getFieldString(x, 0) == board.getFieldString(x, 1)
 			&& board.getFieldString(x, 0) == board.getFieldString(x, 2))
 		{
-			state = (turn == "o") ? O_WIN : X_WIN;
+			state = (turn == "o") ? State::O_WIN : State::X_WIN;
 			return;
 		}
 	}
@@ -31,7 +26,7 @@ void Logic::checkSituation(Board & board)
 		if (!board.isFieldEmpty(0, y) && board.getFieldString(0, y) == board.getFieldString(1, y)
 			&& board.getFieldString(0, y) == board.getFieldString(2, y))
 		{
-			state = (turn == "o") ? O_WIN : X_WIN;
+			state = (turn == "o") ? State::O_WIN : State::X_WIN;
 			return;
 		}
 	}
@@ -40,14 +35,14 @@ void Logic::checkSituation(Board & board)
 	if (!board.isFieldEmpty(0, 0) && board.getFieldString(0, 0) == board.getFieldString(1, 1)
 		&& board.getFieldString(0, 0) == board.getFieldString(2, 2))
 	{
-		state = (turn == "o") ? O_WIN : X_WIN;
+		state = (turn == "o") ? State::O_WIN : State::X_WIN;
 		return;
 	}
 
 	if (!board.isFieldEmpty(0, 2) && board.getFieldString(0, 2) == board.getFieldString(1, 1)
 		&& board.getFieldString(0, 2) == board.getFieldString(2, 0))
 	{
-		state = (turn == "o") ? O_WIN : X_WIN;
+		state = (turn == "o") ? State::O_WIN : State::X_WIN;
 		return;
 	}
 
@@ -61,13 +56,19 @@ void Logic::checkSituation(Board & board)
 	}
 
 	if (busy == 9)
-		state = DRAW;
+	{
+		state = State::DRAW;
+	}		
 }
 
 void Logic::updatePoints()
 {
-	if (state == O_WIN)
+	if (state == State::O_WIN)
+	{
 		points[0]++;
-	else if (state == X_WIN)
+	}		
+	else if (state == State::X_WIN)
+	{
 		points[1]++;
+	}		
 }

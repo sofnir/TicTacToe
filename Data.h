@@ -1,11 +1,10 @@
 #pragma once
-#include <SFML\Graphics.hpp>
+#include <SFML\Graphics\Font.hpp>
 
 class Data
 {
 public:
 	Data();
-	~Data();
 
 	static sf::Font font;
 };

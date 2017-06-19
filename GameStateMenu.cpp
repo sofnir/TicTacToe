@@ -5,7 +5,7 @@
 GameStateMenu::GameStateMenu(Game* game) 
 {
 	this->game = game; 
-	
+
 	createTitle();
 
 	buttons[0] = MenuButton("Play", Data::font, sf::Vector2f(Config::windowSize.x / 2.0f, 180.0f));
@@ -34,7 +34,9 @@ void GameStateMenu::draw()
 	game->window.draw(title);
 
 	for (auto & button : buttons)
-		game->window.draw(button);	
+	{
+		game->window.draw(button);
+	}		
 
 	game->window.display();
 }
@@ -42,7 +44,9 @@ void GameStateMenu::draw()
 void GameStateMenu::update()
 {
 	for (auto & button : buttons)
+	{
 		button.update(game->mousePosition);
+	}		
 }
 
 void GameStateMenu::handleInput()
@@ -53,29 +57,29 @@ void GameStateMenu::handleInput()
 	{		
 		switch (event.type)
 		{
-		case sf::Event::Closed:
-		{
+		case sf::Event::Closed:		
 			game->window.close();
-			break;
-		}
-		case sf::Event::KeyPressed:
-		{
-			if (event.key.code == sf::Keyboard::Escape) 
-				game->window.close();							
-			break;
-		}
-		case sf::Event::MouseButtonPressed:
-		{
+			break;		
+		case sf::Event::KeyPressed:		
+			if (event.key.code == sf::Keyboard::Escape)
+			{
+				game->window.close();
+			}				
+			break;		
+		case sf::Event::MouseButtonPressed:		
 			if (event.mouseButton.button == sf::Mouse::Left)
 			{
 				for (auto & button : buttons)
 				{
 					if (button.isHover(game->mousePosition) && button.getString() == "Play")
+					{
 						playGame();
+					}						
 					else if (button.isHover(game->mousePosition) && button.getString() == "Exit")
+					{
 						game->window.close();
-				}				
-			}
+					}						
+				}							
 		}
 		default:
 			break;

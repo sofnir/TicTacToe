@@ -1,13 +1,15 @@
 #pragma once
-#include <SFML\Graphics.hpp>
 #include "Data.h"
+#include <SFML\Graphics\RenderTarget.hpp>
+#include <SFML\Graphics\Drawable.hpp>
+#include <SFML\Graphics\RectangleShape.hpp>
+#include <SFML\Graphics\Text.hpp>
 
 class Field : public sf::Drawable
 {
 public:
 	Field();
 	Field(const sf::Font & font, const sf::Vector2f & position);
-	~Field();
 
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 

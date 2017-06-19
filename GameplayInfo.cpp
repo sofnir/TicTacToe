@@ -6,17 +6,14 @@ GameplayInfo::GameplayInfo()
 	createPoints();
 }
 
-GameplayInfo::~GameplayInfo()
-{
-	;
-}
-
 void GameplayInfo::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(background);
 
-	for (auto & point: points)
+	for (auto & point : points)
+	{
 		target.draw(point);
+	}		
 }
 
 void GameplayInfo::update(const Logic & logic)

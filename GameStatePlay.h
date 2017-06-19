@@ -1,10 +1,10 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include "GameState.h"
 #include "BottomMenu.h"
 #include "GameplayInfo.h"
 #include "Board.h"
 #include "Logic.h"
+#include <SFML\Window\Event.hpp>
 
 class GameStatePlay : public GameState
 {

@@ -7,12 +7,8 @@ TextButton::TextButton()
 }
 
 TextButton::TextButton(const sf::String & string, const sf::Font & font, unsigned int characterSize)
-	: sf::Text(string, font, characterSize), basicCharacterSize(characterSize), resizing(false)
-{
-	;
-}
-
-TextButton::~TextButton()
+	: sf::Text(string, font, characterSize), basicCharacterSize(characterSize), resizing(false),
+	basicColor(sf::Color::Black), newColor(sf::Color::Red)
 {
 	;
 }

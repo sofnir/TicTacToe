@@ -1,8 +1,7 @@
 #pragma once
 #include <stack>
-#include <SFML/Graphics.hpp>
-#include <iostream>
 #include "Data.h"
+#include <SFML\Graphics\RenderWindow.hpp>
 
 class GameState;
 
@@ -19,7 +18,6 @@ public:
 	void pushState(GameState* state);
 	void popState();
 	GameState* peekState();
-
 	void gameLoop();
 
 private:

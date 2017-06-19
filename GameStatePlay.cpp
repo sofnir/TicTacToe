@@ -28,22 +28,17 @@ void GameStatePlay::handleInput()
 	{
 		switch (event.type)
 		{
-		case sf::Event::Closed:
-		{
+		case sf::Event::Closed:		
 			game->window.close();
-			break;
-		}
-		case sf::Event::KeyPressed:
-		{						
+			break;		
+		case sf::Event::KeyPressed:					
 			if (event.key.code == sf::Keyboard::Escape)
 			{
 				game->popState();
 				return;
 			}
-			break;
-		}
-		case sf::Event::MouseButtonPressed:
-		{
+			break;		
+		case sf::Event::MouseButtonPressed:		
 			if (event.mouseButton.button == sf::Mouse::Left)
 			{				
 				if(bottomMenu.isBackHover(game->mousePosition))				
@@ -57,26 +52,27 @@ void GameStatePlay::handleInput()
 					logic.setPlayingState();
 				}
 				
-				for(int y = 0; y < 3; y++)
+				for (int y = 0; y < 3; y++)
+				{
 					for (int x = 0; x < 3; x++)
 					{
-						if (board.isFieldHover(x, y, game->mousePosition) && board.isFieldEmpty(x, y) && 
-							logic.getState() == Logic::PLAYING)
+						if (board.isFieldHover(x, y, game->mousePosition) && board.isFieldEmpty(x, y) &&
+							logic.getState() == Logic::State::PLAYING)
 						{
 							board.push(x, y, logic.getTurn());
 							logic.checkSituation(board);
-														
-							if (logic.getState() != Logic::PLAYING)
+
+							if (logic.getState() != Logic::State::PLAYING)
 							{
 								logic.updatePoints();
 								gameplayInfo.update(logic);
 							}
 
 							logic.changeTurn();
-						}							
+						}
 					}
-			}
-		}
+				}					
+			}		
 		default: break;
 		}
 	}

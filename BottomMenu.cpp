@@ -6,23 +6,22 @@ BottomMenu::BottomMenu()
 	createBackground();
 }
 
-BottomMenu::~BottomMenu()
-{
-	;
-}
-
 void BottomMenu::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(background);
 
 	for (auto & button : buttons)
+	{
 		target.draw(button);
+	}		
 }
 
 void BottomMenu::update(const sf::Vector2f & mousePosition)
 {
 	for (auto & button : buttons)
+	{
 		button.update(mousePosition);
+	}		
 }
 
 bool BottomMenu::isBackHover(const sf::Vector2f & mousePosition)

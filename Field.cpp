@@ -11,11 +11,6 @@ Field::Field(const sf::Font & font, const sf::Vector2f & position)
 	createText(font);
 }
 
-Field::~Field()
-{
-	;
-}
-
 void Field::draw(sf::RenderTarget & target, sf::RenderStates states) const 
 {
 	target.draw(background);
@@ -24,10 +19,7 @@ void Field::draw(sf::RenderTarget & target, sf::RenderStates states) const
 
 bool Field::isHover(const sf::Vector2f & mousePosition) const
 {
-	if (background.getGlobalBounds().contains(mousePosition))
-		return true;
-	else
-		return false;
+	return (background.getGlobalBounds().contains(mousePosition));
 }
 
 bool Field::isEmpty() const

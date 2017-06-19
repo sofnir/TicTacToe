@@ -6,7 +6,3 @@ Data::Data()
 {
 	font.loadFromFile("Data/font.ttf");
 }
-
-Data::~Data()
-{
-}

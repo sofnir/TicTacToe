@@ -8,25 +8,26 @@ Board::Board()
 	{
 		for (int x = 0; x < 3; x++)
 		{
-			fields[y][x] = Field(Data::font, sf::Vector2f((Config::windowSize.x - 246.0f) / 2.0f + (83.0f) * x,
+			fields[y][x] = Field(Data::font, sf::Vector2f((Config::windowSize.x - 246.0f) / 2.0f + (83.0f) * x, 
 				(Config::windowSize.y - 246.0f) / 2.0f + (83.0f) * y));
 		}
 	}
 }
 
-Board::~Board()
-{
-	;
-}
-
 void Board::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	for (auto & line : lines)
+	{
 		target.draw(line);
+	}
 
 	for (auto & row : fields)
+	{
 		for (auto & field : row)
+		{
 			target.draw(field);
+		}
+	}			
 }
 
 bool Board::isFieldHover(int x, int y, const sf::Vector2f & mousePosition) const
@@ -52,8 +53,12 @@ void Board::push(int x, int y, const sf::String & string)
 void Board::reset()
 {
 	for (auto & row : fields)
+	{
 		for (auto & field : row)
+		{
 			field.setString(" ");
+		}
+	}					
 }
 
 void Board::createLines()

@@ -1,4 +1,5 @@
 #include "MenuButton.h"
+#include "SFML\Graphics\RenderTarget.hpp"
 
 MenuButton::MenuButton()
 {
@@ -9,11 +10,6 @@ MenuButton::MenuButton(const sf::String & string, const sf::Font & font, const s
 {
 	createTextButton(string, font, position);
 	createBackground();
-}
-
-MenuButton::~MenuButton()
-{
-	;
 }
 
 void MenuButton::draw(sf::RenderTarget & target, sf::RenderStates states) const
@@ -33,7 +29,6 @@ void MenuButton::createTextButton(const sf::String & string, const sf::Font & fo
 	textButton.setOrigin(textButton.getGlobalBounds().width / 2, textButton.getGlobalBounds().height / 2);
 	textButton.setPosition(position);
 }
-//320.0f, 180.0f + index * 100.0f)
 
 void MenuButton::createBackground()
 {

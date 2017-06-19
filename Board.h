@@ -1,13 +1,14 @@
 #pragma once
-#include "SFML\Graphics.hpp"
 #include "Data.h"
 #include "Field.h"
+#include <SFML\Graphics\RenderTarget.hpp>
+#include <SFML\Graphics\Drawable.hpp>
+#include <SFML\Graphics\RectangleShape.hpp>
 
 class Board : public sf::Drawable
 {
 public:
 	Board();
-	~Board();
 
 	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	bool isFieldHover(int x, int y, const sf::Vector2f & mousePosition) const;
