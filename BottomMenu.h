@@ -10,7 +10,7 @@ class BottomMenu : public sf::Drawable
 public:
 	BottomMenu();
 
-	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
+	void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	void update(const sf::Vector2f & mousePosition);	
 	bool isBackHover(const sf::Vector2f & mousePosition);
 	bool isPlayAgainHover(const sf::Vector2f & mousePosition);

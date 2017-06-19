@@ -8,7 +8,7 @@ class GameplayInfo : public sf::Drawable
 public:
 	GameplayInfo();
 
-	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
+	void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	void update(const Logic & logic);
 
 private:

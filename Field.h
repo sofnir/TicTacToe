@@ -11,7 +11,7 @@ public:
 	Field();
 	Field(const sf::Font & font, const sf::Vector2f & position);
 
-	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
+	void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 
 	bool isHover(const sf::Vector2f & mousePosition) const;
 	void setString(const sf::String & string) { text.setString(string); }

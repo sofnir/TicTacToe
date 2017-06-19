@@ -8,7 +8,7 @@ public:
 	MenuButton();
 	MenuButton(const sf::String & string, const sf::Font & font, const sf::Vector2f & position);
 
-	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
+	void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	
 	void update(const sf::Vector2f &mousePosition) { textButton.update(mousePosition); }
 	bool isHover(const sf::Vector2f &mousePosition) const { return textButton.isHover(mousePosition); }

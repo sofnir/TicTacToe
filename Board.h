@@ -10,7 +10,7 @@ class Board : public sf::Drawable
 public:
 	Board();
 
-	virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
+	void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 	bool isFieldHover(int x, int y, const sf::Vector2f & mousePosition) const;
 	bool isFieldEmpty(int x, int y) const;
 	const sf::String & getFieldString(int x, int y) const;
